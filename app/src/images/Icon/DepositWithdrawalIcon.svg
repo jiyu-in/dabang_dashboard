@@ -1,0 +1,22 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/g-24/&#236;&#158;&#133;&#236;&#182;&#156;&#234;&#184;&#136;">
+<g id="Icon/24px/&#236;&#152;&#136;&#234;&#184;&#136;">
+<path id="Mask" fill-rule="evenodd" clip-rule="evenodd" d="M17.25 19.2426H20.25L20.25 5.61396L23.1213 8.48528L25.2426 6.36396L18.8787 0L18.75 0.12868L18.6213 0L12.2574 6.36396L14.3787 8.48528L17.25 5.61396V19.2426ZM30.75 0H27.75V13.6287L24.8787 10.7574L22.7574 12.8787L29.1213 19.2426L29.25 19.114L29.3787 19.2426L35.7426 12.8787L33.6213 10.7574L30.75 13.6287V0Z" fill="white" fill-opacity="0.7"/>
+<mask id="mask0_0_409" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="0" width="24" height="20">
+<path id="Mask_2" fill-rule="evenodd" clip-rule="evenodd" d="M17.25 19.2426H20.25L20.25 5.61396L23.1213 8.48528L25.2426 6.36396L18.8787 0L18.75 0.12868L18.6213 0L12.2574 6.36396L14.3787 8.48528L17.25 5.61396V19.2426ZM30.75 0H27.75V13.6287L24.8787 10.7574L22.7574 12.8787L29.1213 19.2426L29.25 19.114L29.3787 19.2426L35.7426 12.8787L33.6213 10.7574L30.75 13.6287V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_0_409)">
+<rect id="Rectangle" width="36" height="36" fill="white" fill-opacity="0.7"/>
+</g>
+</g>
+<path id="Combined Shape" fill-rule="evenodd" clip-rule="evenodd" d="M12 9H3V33H28.5V25.5H25.5V30H6V12H12V9Z" fill="white" fill-opacity="0.8"/>
+<g id="Rectangle_2">
+<rect x="9" y="21" width="13.5" height="3" fill="#D8D8D8"/>
+<rect x="9.5" y="21.5" width="12.5" height="2" stroke="white" stroke-opacity="0.8"/>
+</g>
+<g id="Rectangle_3">
+<rect x="9" y="25.5" width="9" height="3" fill="#D8D8D8"/>
+<rect x="9.5" y="26" width="8" height="2" stroke="white" stroke-opacity="0.8"/>
+</g>
+</g>
+</svg>
