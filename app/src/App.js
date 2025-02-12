@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import logo from './logo.svg';
+import { styled } from '@mui/material/styles';
+import Sidebar from './component/Sidebar';
+import Contents from './component/Contents';
 import './App.css';
-import {Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, Box} from '@mui/material';
-import { ReactComponent as Logo} from './images/Logo.svg'; 
+import {Box} from '@mui/material';
 import { ReactComponent as DepositIcon} from './images/DepositIcon.svg'; 
 import { ReactComponent as LoanIcon} from './images/LoanIcon.svg'; 
 import { ReactComponent as ForexIcon} from './images/ForexIcon.svg'; 
@@ -11,26 +11,32 @@ import { ReactComponent as InsuranceIcon} from './images/InsuranceIcon.svg';
 import { ReactComponent as CardIcon} from './images/CardIcon.svg'; 
 import { ReactComponent as ServiceCenterIcon} from './images/ServiceCenterIcon.svg'; 
 
+const drawerWidth = 240;
+const userName = '김다방';
+
 const Root = styled(Box)`
+  display: flex;
   & *{
     font-family: 'Spoqa Han Sans Neo','Roboto', sans-serif !important;
+    letter-spacing: -0.28px;
+    box-sizing: border-box;
   }
 `;
 
-const StyledDrawer = styled(Drawer)`
-  & .MuiDrawer-paper {
-    width: ${(props) => (props.open ? '240px' : '80px')};
-    color: #fff;
-    background-color: #2E59A6;
-    transition: width 0.3s;
-  }
+const Topbar = styled(Box)`
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 40px;
+    color: #666; 
+    background-color: #e9edf5;
+    font-size: 1.125rem;
+    box-sizing: border-box;
+    & b{
+        color: #333; 
+        margin-right: 4px;
+    }
 `;
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-}));
 
 const items = [
   { text: '예금', icon: <DepositIcon /> },
@@ -42,6 +48,7 @@ const items = [
 ];
 
 
+
 function App() {
   const [open, setOpen] = useState(true);
 
@@ -51,42 +58,13 @@ function App() {
 
   return (
     <Root>
-      <Button onClick={toggleDrawer}>
-            닫기
-          {/* {theme.direction === 'rtl' ? '닫기' : '열기'} */}
-          </Button>
-    <StyledDrawer 
-      variant="permanent"
-      open={open}
-      >
-        <DrawerHeader>
-        <Box><Logo/></Box>
-        <Button onClick={toggleDrawer}>
-          {open ? '닫기' : '열기'}
-          </Button>
-        </DrawerHeader>
-        
-        <List>
-          {items.map((item, index) => (
-            <ListItem key={index}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.text}
-                  sx={[
-                    open
-                      ? { opacity: 1 }
-                      : { opacity: 0 },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </StyledDrawer>
-      <Box component="main" sx={{flexGrow:1}}>ddd</Box>
+      <Sidebar toggleDrawer={toggleDrawer} open={open} items={items} drawerWidth={drawerWidth} />
+      <Box sx={{flex:1}}>
+        <Topbar>
+                  <b>{userName}</b>님 환영합니다.
+              </Topbar>
+        <Contents />
+      </Box>
       </Root>
   );
 }
