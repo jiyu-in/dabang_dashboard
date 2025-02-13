@@ -12,7 +12,7 @@ const StyledDrawer = styled(Drawer)`
         display: flex;
         align-items: flex-start;
         width: 240px;
-        height: 100vh;
+        min-height: 100vh;
         color: #fff;
         background-color: #2E59A6;
         gap: 84px;

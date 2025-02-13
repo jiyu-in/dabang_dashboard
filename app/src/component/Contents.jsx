@@ -1,8 +1,14 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import {Box, Typography} from '@mui/material';
+import {Box} from '@mui/material';
+import {GridBox, BorderBox, BoxTitle, FlexColumnBox} from '../styled/Styled';
 import MyAssets from './MyAssets';
-import {GridBox, BorderBox, BoxTitle} from '../common/Styled';
+import AssetAnalysis from './AssetAnalysis';
+import History from './History';
+import Analysis from './Analysis';
+import ListAnalysis from './ListAnalysis';
+
+
 
 const Root = styled(Box)`
     width: 100%;
@@ -12,16 +18,29 @@ const Root = styled(Box)`
     padding:32px; 
 `;
 
+const Wrap = styled(FlexColumnBox)`
+    gap:32px;
+`;
+
+const GridBoxColumns = styled(GridBox)`
+    grid-template-columns: 2fr 1fr; 
+`;
+
 
 function Contents( ) {
     return (
         <Root>
-            <GridBox>
-                <MyAssets/>
-                <BorderBox>
-                    <BoxTitle variant="h4">자산분석</BoxTitle>
-                </BorderBox>
-            </GridBox>
+            <Wrap>
+                <GridBox>
+                    <MyAssets/>
+                    <AssetAnalysis/>
+                </GridBox>
+                <History/>
+                <GridBoxColumns>
+                    <Analysis/>
+                    <ListAnalysis/>
+                </GridBoxColumns>
+            </Wrap>
             <Box>
                 2
             </Box>
