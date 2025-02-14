@@ -34,7 +34,7 @@ MUI 기반 컴포넌트 구성: 일관된 UI 스타일 적용
 
 📷 시안 및 구현 화면
 
-<img src="./app/src/images/dabang_index.jpg" alt="시안작업" />
+<img src="./app/src/images/dabang_index.jpg" alt="프로젝트 미리보기" width="500" />
 
 ================================================
 
