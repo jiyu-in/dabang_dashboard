@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import {Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, Box} from '@mui/material';
+import {Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, IconButton, Box} from '@mui/material';
 import { ReactComponent as Logo} from '../images/Logo.svg'; 
+import { ReactComponent as CloseIcon} from '../images/CloseIcon.svg'; 
 
 
 const StyledDrawer = styled(Drawer)`
@@ -21,14 +22,20 @@ const StyledDrawer = styled(Drawer)`
     }
 `;
 
-const LogoBox = styled(Box)`
-    padding: 32px 32px 0 32px;
-`;
-
 const DrawerHeader = styled(Box)`
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding: 32px 32px 0 32px;
+    box-sizing: border-box;
+`;
+
+
+const CloseButton = styled(IconButton)`
+    min-width: auto;
+    padding:0;
+    color:#fff;
 `;
 
 const ListUl = styled(List)`
@@ -56,16 +63,16 @@ const ListItemStyled = styled(ListItem)`
 
 
 
-function Sidebar({ items, open, drawerWidth }) {
+function Sidebar({ items, open, drawerWidth, isMobile, toggleDrawer }) {
     return (
         <StyledDrawer 
-        variant="permanent"
-        open={open}
-        // sx={{width: open ? drawerWidth : '80px' }}
+            variant={isMobile ? "temporary" : "permanent"}
+            open={isMobile ? open : true}
+            onClose={toggleDrawer(false)}
         >
             <DrawerHeader>
-            <LogoBox><Logo/></LogoBox>
-            {/* <Button onClick={toggleDrawer}>{open ? '닫기' : '열기'}</Button> */}
+                <Logo/>
+                {isMobile && (<CloseButton  onClick={toggleDrawer(false)}> <CloseIcon/> </CloseButton> )}
             </DrawerHeader>
             <ListUl>
             {items.map((item, index) => (

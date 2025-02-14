@@ -3,13 +3,17 @@ import { styled } from '@mui/material/styles';
 import Sidebar from './component/Sidebar';
 import Contents from './component/Contents';
 import './App.css';
-import {Box} from '@mui/material';
+import {Box, Typography, IconButton} from '@mui/material';
 import { ReactComponent as DepositIcon} from './images/DepositIcon.svg'; 
 import { ReactComponent as LoanIcon} from './images/LoanIcon.svg'; 
 import { ReactComponent as ForexIcon} from './images/ForexIcon.svg'; 
 import { ReactComponent as InsuranceIcon} from './images/InsuranceIcon.svg'; 
 import { ReactComponent as CardIcon} from './images/CardIcon.svg'; 
 import { ReactComponent as ServiceCenterIcon} from './images/ServiceCenterIcon.svg'; 
+import { ReactComponent as MenuIcon} from './images/MenuIcon.svg'; 
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 
 const drawerWidth = 240;
 const userName = '김다방';
@@ -26,10 +30,12 @@ const Root = styled(Box)`
 const Topbar = styled(Box)`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 80px;
     padding: 0 40px;
     color: #666; 
-    background-color: #e9edf5;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #ddd;
     font-size: 1.125rem;
     box-sizing: border-box;
     & b{
@@ -50,19 +56,29 @@ const items = [
 
 
 function App() {
-  const [open, setOpen] = useState(true);
 
-  const toggleDrawer = () => {
-    setOpen(!open);
+  const [open, setOpen] = useState(true);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md")); // md 이하인지 체크
+
+  const toggleDrawer = (state) => () => {
+    setOpen(state);
   };
+
+
 
   return (
     <Root>
-      <Sidebar toggleDrawer={toggleDrawer} open={open} items={items} drawerWidth={drawerWidth} />
+      <Sidebar toggleDrawer={toggleDrawer} open={open} items={items} drawerWidth={drawerWidth} isMobile={isMobile} />
       <Box sx={{flex:1}}>
         <Topbar>
-                  <b>{userName}</b>님 환영합니다.
-              </Topbar>
+          <Typography><b>{userName}</b>님 환영합니다.</Typography>
+          {isMobile && (
+            <IconButton disableRipple onClick={toggleDrawer(true)}>
+            <MenuIcon />
+          </IconButton>
+          )}
+        </Topbar>
         <Contents />
       </Box>
       </Root>
