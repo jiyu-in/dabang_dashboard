@@ -5,6 +5,7 @@ import {FlexBox, BorderBox, BoxTitle, Description} from '../styled/Styled';
 import DoughnutChart from './chat/DoughnutChart';
 
 const Root = styled(BorderBox)`
+    height:234px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -60,7 +61,7 @@ function AssetAnalysis( ) {
                 <Typography variant="h4">자산분석</Typography>
                 <Description>당월기준 (2025년 2월 기준)</Description>
             </BoxTitle>
-            <FlexBox>
+            <FlexBox sx={{overflow:'auto'}}>
                 <DoughnutChart data={data} />
                 <Legend>
                     {data.map((item, index) => (

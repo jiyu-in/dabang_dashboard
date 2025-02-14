@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import {Box, Typography} from '@mui/material';
+import {Box, Typography, Button} from '@mui/material';
 
 export const FlexBox = styled(Box)`
     display: flex;
@@ -12,6 +12,27 @@ export const FlexColumnBox = styled(FlexBox)`
 export const FlexCenterBox = styled(FlexBox)`
     align-items: center;
     justify-content: center;
+`;
+
+export const ButtonStyle = styled(Button)`
+    display: flex;
+    padding: 7px 10px;
+    border-radius: 0;
+    &.MuiButton-outlined{
+        color:#888;
+        border-color: #DADADA;
+        &:hover{
+            border-color: #c2c2c2;
+        }
+    }
+    &.MuiButton-contained{
+         background-color: #2E59A6;
+         border: 0 none;
+         box-shadow: none;
+         &:hover{
+            background-color: #1d3e79;
+        }
+    } 
 `;
 
 
@@ -27,8 +48,7 @@ export const BoxStyled = styled(Box)`
 `;
 
 export const BorderBox = styled(BoxStyled)`
-    /* border: 1px solid #EBEBEB; */
-    border: 1px solid #888888;
+    border: 1px solid #EBEBEB;
 `;
 
 export const BoxTitle = styled(Box)`

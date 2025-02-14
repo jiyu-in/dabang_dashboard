@@ -5,6 +5,7 @@ import {BorderBox, BoxTitle, Description} from '../styled/Styled';
 import BarChartNoPadding from './chat/BarChartNoPadding';
 
 const Root = styled(BorderBox)`
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

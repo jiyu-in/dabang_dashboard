@@ -9,6 +9,7 @@ const Root = styled(BorderBox)`
     flex-direction: column;
     justify-content: space-between;
     gap:30px;
+    margin: 24px 0;
     & .MuiTableContainer-root{
         box-shadow: none;
     }

@@ -1,7 +1,7 @@
 import zIndex from "@mui/material/styles/zIndex";
 import { display, width } from "@mui/system";
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import styled from "styled-components";
 
 const TooltipWrapper = styled.div`
@@ -72,7 +72,7 @@ const CustomTooltip = ({ active, payload, coordinate }) => {
           fontSize: "0.75rem",
           transform: "translateX(-50%)", 
           whiteSpace: "nowrap",
-          pointerEvents: "none", // 🔥 툴팁에 마우스 이벤트 방지
+          pointerEvents: "none", // 툴팁에 마우스 이벤트 방지
         }}
       >
         <TooltipWrapper>
@@ -92,7 +92,7 @@ const colors = ["#9E9E9E", "#9E9E9E", "#9E9E9E", "#9E9E9E", "#9E9E9E", "#9E9E9E"
 
 const BarChartNoPadding = () => {
   return (
-    <div style={{ width: "100%", height: "300px" }}>
+    <div style={{ width: "100%", height: "160px" }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={formattedData} barCategoryGap="0%" barGap={10} barSize={20}>
           <XAxis dataKey="name" tick={<CustomXAxisTick />} axisLine={{stroke : "#C9C9C9"}} tickLine={{ stroke: "transparent" }}  />
@@ -100,8 +100,8 @@ const BarChartNoPadding = () => {
           <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
           <Bar 
             dataKey="value" 
-            isAnimationActive={false} // 🔥 hover 효과 제거
-            background={{ fill: "transparent" }} // 🔥 회색 배경 제거
+            isAnimationActive={false} // hover 효과 제거
+            background={{ fill: "transparent" }} // 회색 배경 제거
           >
             {formattedData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index]} />
