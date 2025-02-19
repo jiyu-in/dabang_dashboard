@@ -26,10 +26,10 @@ export const ButtonStyle = styled(Button)`
         }
     }
     &.MuiButton-contained{
-         background-color: #2E59A6;
-         border: 0 none;
-         box-shadow: none;
-         &:hover{
+        background-color: #2E59A6;
+        border: 0 none;
+        box-shadow: none;
+        &:hover{
             background-color: #1d3e79;
         }
     } 
@@ -49,6 +49,9 @@ export const BoxStyled = styled(Box)`
 
 export const BorderBox = styled(BoxStyled)`
     border: 1px solid #EBEBEB;
+    @media (max-width: 600px) {
+        border: 0 none;
+    }
 `;
 
 export const BoxTitle = styled(Box)`

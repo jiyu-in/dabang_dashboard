@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import {Typography, Tabs, Tab, Box} from '@mui/material';
 import {BorderBox, BoxTitle, ButtonStyle, Description, FlexBox, FlexCenterBox, FlexColumnBox} from '../styled/Styled';
+import { useMediaQuery } from "react-responsive";
+
 
 const Root = styled(BorderBox)`
     display: flex;
@@ -9,6 +11,15 @@ const Root = styled(BorderBox)`
     justify-content: space-between;
     margin: 24px 0;
     /* gap:30px; */
+    @media (max-width: 600px) {
+        padding: 0;
+    }
+`;
+
+const BoxTitleRe = styled(BoxTitle)`
+    @media (max-width: 600px) {
+        display: none;
+    }
 `;
 
 const TabStyled = styled(Tab)`
@@ -94,8 +105,48 @@ const TextBox = styled(Box)`
         font-size: 0.688rem;
     }
 `;
+
 const GraphBoxBottom = styled(GraphBox)`
     border-color: #026CFF;
+`;
+
+const BoxGap = styled(FlexColumnBox)`
+    gap:24px;
+`;
+
+const Category = styled('span')`
+    padding:3px 7px;
+    font-size: 0.688rem;
+    color: #C12424;
+    border: 1px solid #C12424;
+`;
+
+const CategoryYellow = styled(Category)`
+    color:#CCAF83;
+    border: 1px solid #CCAF83;
+`;
+
+const CategoryContents = styled(Box)`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+const CategoryTitle = styled('p')`
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+`;
+const CategorySubtitle = styled('span')`
+    font-size: 0.875rem;
+    color:#222;
+`;
+
+const Percent = styled('span')`
+    font-size: 1rem;
+    color:#222;
+    & b{
+        font-size: 1.25rem;
+    }
 `;
 
 const tabData = [
@@ -112,12 +163,39 @@ function AssetManagement( ) {
     const handleChange = (_, newValue) => {
         setValue(newValue);
     };
+
+    const isMobile = useMediaQuery({ maxWidth: 600 });
+
     return (
         <Root>
-            <BoxTitle>
+            <BoxTitleRe>
                 <Typography variant="h4">자산관리</Typography>
                 <Description>고객님 연령대 맞는 상품 추천</Description>
-            </BoxTitle>
+            </BoxTitleRe>
+            {isMobile ? 
+            <BoxGap>
+                <Box>
+                    <Category>적금</Category> 
+                    <CategoryContents>
+                        <FlexColumnBox>
+                            <CategoryTitle>다방 우리 적금</CategoryTitle>
+                            <CategorySubtitle>복잡하지 않고 가장 간단한 적금</CategorySubtitle>
+                        </FlexColumnBox>
+                        <Percent>연 <b>2.10%</b></Percent>
+                    </CategoryContents>
+                </Box>
+                <Box>
+                    <CategoryYellow>적금</CategoryYellow> 
+                    <CategoryContents>
+                        <FlexColumnBox>
+                            <CategoryTitle>다방 우리 적금</CategoryTitle>
+                            <CategorySubtitle>복잡하지 않고 가장 간단한 적금</CategorySubtitle>
+                        </FlexColumnBox>
+                        <Percent>연 <b>2.10%</b></Percent>
+                    </CategoryContents>
+                </Box>
+            </BoxGap>
+            :
             <Box sx={{ width: "100%", maxWidth: 600, mx: "auto", mt: 3 }}>
                 <Tabs value={value} onChange={handleChange} centered>
                     {tabData.map((tab, index) => (
@@ -152,6 +230,7 @@ function AssetManagement( ) {
                     <ButtonStyle variant="contained" disableRipple>바로 가입하기 </ButtonStyle>
                 </ButtonBox>
                 </Box>
+        }
         </Root>
     );
 }

@@ -5,11 +5,34 @@ import {FlexBox, BorderBox, BoxTitle, Description} from '../styled/Styled';
 import DoughnutChart from './chat/DoughnutChart';
 
 const Root = styled(BorderBox)`
+    width: 100%;
     height:234px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: 600px) {
+        height: 100%;
+    }
+    @media (min-width: 601px) and (max-width: 1199px) {
+        height: 100%;
+    }
 `;
+
+const BoxTitleRe = styled(BoxTitle)`
+    @media (max-width: 600px) {
+        display: none;
+    }
+`;
+
+
+const ChartBox = styled(FlexBox)`
+    overflow: auto;
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+`;
+
+
 
 const Legend = styled(List)`
     display: flex;
@@ -24,6 +47,13 @@ const Legend = styled(List)`
         font-size: 0.875rem;
         & > div{
             align-items: center;
+        }
+    }
+    @media (max-width: 600px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        & .MuiListItem-root{
+            width: 50%;
         }
     }
 `;
@@ -57,11 +87,11 @@ const data = [
 function AssetAnalysis( ) {
     return (
         <Root>
-            <BoxTitle>
+            <BoxTitleRe>
                 <Typography variant="h4">자산분석</Typography>
                 <Description>당월기준 (2025년 2월 기준)</Description>
-            </BoxTitle>
-            <FlexBox sx={{overflow:'auto'}}>
+            </BoxTitleRe>
+            <ChartBox sx={{overflow:'auto'}}>
                 <DoughnutChart data={data} />
                 <Legend>
                     {data.map((item, index) => (
@@ -74,7 +104,7 @@ function AssetAnalysis( ) {
                         </ListItem>
                     ))}
                 </Legend>
-            </FlexBox>
+            </ChartBox>
         </Root>
     );
 }

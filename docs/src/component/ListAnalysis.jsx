@@ -8,6 +8,9 @@ const Root = styled(BorderBox)`
     flex-direction: column;
     justify-content: space-between;
     gap:20px;
+    @media (max-width: 600px) {
+        background-color: #026CFF;
+    }
 `;
 
 const DlList = styled('dl')`
@@ -28,6 +31,24 @@ const DlList = styled('dl')`
             font-size: 1rem;
             margin-right:4px;
         }
+    }
+    @media (max-width: 600px) {
+        & dt{
+            color: #B6D4FF;
+        }
+        & dd{
+        color: #D5DDED;
+        font-size: 0.875rem;
+            & b{
+                color: #FFFFFF;
+                font-size: 1rem;
+                margin-right:4px;
+            }
+            & .MuiButton-root{
+                background-color: #FFFFFF;
+                color:#888888;
+            }
+        } 
     }
 `;
 

@@ -5,6 +5,7 @@ import {FlexBox, FlexColumnBox, BorderBox, BoxTitle, Description} from '../style
 
 
 const Root = styled(BorderBox)`
+    width: 100%;
     height:234px;
     display: flex;
     flex-direction: column;

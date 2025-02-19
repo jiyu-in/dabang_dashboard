@@ -42,6 +42,9 @@ const Topbar = styled(Box)`
         color: #333; 
         margin-right: 4px;
     }
+    @media (max-width: 600px) {
+      padding: 0 24px;
+    }
 `;
 
 const items = [
@@ -57,7 +60,7 @@ const items = [
 
 function App() {
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); // md 이하인지 체크
 

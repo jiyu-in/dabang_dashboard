@@ -1,17 +1,32 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import {Box, Typography} from '@mui/material';
-import {BorderBox, BoxTitle, FlexBox, FlexColumnBox} from '../styled/Styled';
+import {BorderBox, BoxTitle, FlexBox, FlexCenterBox, FlexColumnBox} from '../styled/Styled';
+import { useMediaQuery } from "react-responsive";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
 
 const Root = styled(BorderBox)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap:32px;
+    @media (max-width: 600px) {
+        padding: 0;
+        margin-bottom: 40px;
+    }
 `;
 
 const ListWrapBox = styled(FlexColumnBox)`
     gap:16px;
+`;
+
+const SliderBox = styled(Slider)`
+    max-width: 100vw;
+    padding-bottom: 20px;
 `;
 
 const ListBox = styled(FlexBox)`
@@ -23,11 +38,29 @@ const ListBox = styled(FlexBox)`
         align-items: flex-start;
     }
 `;
+const ListBoxMo = styled(ListBox)`
+    & > div{
+        align-items: center;
+    }
+`;
+
 
 const DateBox = styled(FlexBox)`
     display: flex;
     align-items: center;
     gap:10px;
+`;
+
+const DateTxt = styled('span')`
+    color:#1673F8;
+    font-size: 1rem;
+    font-weight: 700;
+`;
+
+const DetailTxt = styled('p')`
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
 `;
 
 const DotIcon = styled('div')`
@@ -75,11 +108,40 @@ const list = [
 
 
 function Calender( ) {
+    const isMobile = useMediaQuery({ maxWidth: 600 });
+    var settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        // initialSlide: 0,
+        arrows: false
+    };
+
     return (
         <Root>
             <BoxTitle>
                 <Typography variant="h4">내 캘린더</Typography>
             </BoxTitle>
+            {isMobile ? 
+            <SliderBox {...settings}>
+            {list.map((item, index) => (
+                <ListBoxMo key={index} sx={[ item.status === '마감' ? {color :  '#888' } : null ]}>
+                    <FlexColumnBox>
+                        <FlexCenterBox>
+                            <DateTxt>{item.date} (수요일)</DateTxt>
+                            {item.status === "마감" ? <State>마감</State> : 
+                            item.status === "진행중" ? <StateProgress>진행중</StateProgress> : 
+                            <State>{item.status}</State>}
+                        </FlexCenterBox>
+                        <DetailTxt>{item.detail}</DetailTxt>
+                        <Typography> ~{item.deadline} 까지</Typography>
+                    </FlexColumnBox>
+                </ListBoxMo>
+            ))}
+            </SliderBox>
+            :
             <ListWrapBox>
             {list.map((item, index) => (
                 <ListBox key={index} sx={[ item.status === '마감' ? {color :  '#888' } : null ]}>
@@ -99,6 +161,7 @@ function Calender( ) {
                 </ListBox>
             ))}
             </ListWrapBox>
+}
         </Root>
     );
 }
