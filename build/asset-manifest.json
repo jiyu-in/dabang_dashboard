@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/dabang_dashboard/static/css/main.db04ce58.css",
+    "main.js": "/dabang_dashboard/static/js/main.8cdf5379.js",
+    "static/media/mo-banner.jpg": "/dabang_dashboard/static/media/mo-banner.38054240c85b5a0166b2.jpg",
+    "static/media/LoanIcon.svg": "/dabang_dashboard/static/media/LoanIcon.bccc182b4621c99cfc2b3fa0490e9867.svg",
+    "static/media/slick.svg": "/dabang_dashboard/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/dabang_dashboard/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/dabang_dashboard/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/dabang_dashboard/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/ForexIcon.svg": "/dabang_dashboard/static/media/ForexIcon.cf852ef4d5401556e869e9589f40be8d.svg",
+    "static/media/Logo.svg": "/dabang_dashboard/static/media/Logo.7a81c317deb8cad8ca32c7e902bb4210.svg",
+    "static/media/MenuIcon.svg": "/dabang_dashboard/static/media/MenuIcon.267ec587c3d80fc61410ad87a471a1b0.svg",
+    "static/media/ServiceCenterIcon.svg": "/dabang_dashboard/static/media/ServiceCenterIcon.07ef15616b85e4dc4ebc13c824c5024c.svg",
+    "static/media/InsuranceIcon.svg": "/dabang_dashboard/static/media/InsuranceIcon.45e90d36af6b9305cf4f8e02bf7ba21f.svg",
+    "index.html": "/dabang_dashboard/index.html",
+    "static/media/DepositIcon.svg": "/dabang_dashboard/static/media/DepositIcon.d221d95a61daba5ecd9a23f790f84eef.svg",
+    "static/media/CardIcon.svg": "/dabang_dashboard/static/media/CardIcon.0f6445fbe489385a281af7ed9d71eb5c.svg",
+    "static/media/TriangleIcon.svg": "/dabang_dashboard/static/media/TriangleIcon.b3c1167525d8cd1443bbdd9d8dbcdfdf.svg",
+    "static/media/CloseIcon.svg": "/dabang_dashboard/static/media/CloseIcon.65afaa7a03b51e16b436a1c499eea0fa.svg",
+    "main.db04ce58.css.map": "/dabang_dashboard/static/css/main.db04ce58.css.map",
+    "main.8cdf5379.js.map": "/dabang_dashboard/static/js/main.8cdf5379.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db04ce58.css",
+    "static/js/main.8cdf5379.js"
+  ]
+}
