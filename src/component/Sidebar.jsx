@@ -55,6 +55,9 @@ const ListItemStyled = styled(ListItem)`
         & .MuiListItemIcon-root{
         min-width: auto;
         }
+        & .MuiListItemText-root{
+            opacity: 1;
+        }
     }
     &:hover, &:focus{
         background-color: #1673F8;
